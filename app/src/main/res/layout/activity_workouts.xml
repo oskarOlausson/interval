@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".controller.activities.ChooseWorkout">
+
+    <include layout="@layout/toolbar"/>
+
+    <include layout="@layout/button_delete"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/list_workout"
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintTop_toBottomOf="@id/button_delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</android.support.constraint.ConstraintLayout>

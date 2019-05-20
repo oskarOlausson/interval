@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginBottom="1dp"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:elevation="4dp"
+    >
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/visible_always"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/totalTime"
+            app:layout_constraintHorizontal_bias="0"
+            android:id="@+id/workout"
+            android:textColor="#111111"
+            android:textSize="16sp"
+            />
+
+
+        <TextView
+            android:id="@+id/totalTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/button_down"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="#111111"
+            android:textSize="16sp"
+            android:layout_marginEnd="8dp"
+            />
+
+        <ImageButton
+            android:id="@+id/button_down"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@color/transparent"
+            android:src="@drawable/ic_keyboard_arrow_down"
+            android:contentDescription="@string/show_more"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/checkbox_delete"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/checkbox_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="gone"
+            android:buttonTint="@color/red"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/visible_always"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
+
+        <include
+            layout="@layout/item_details_workout"
+            android:visibility="visible"
+            android:id="@+id/details_container"
+            />
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>

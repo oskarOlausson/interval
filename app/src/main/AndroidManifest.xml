@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="se.umu.oskar.interval">
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera2.full" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        >
+
+        <activity
+            android:name=".controller.activities.ChooseWorkout"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".controller.activities.EditWorkout"
+            android:label="@string/workout_maker"
+            android:parentActivityName=".controller.activities.ChooseWorkout"/>
+
+        <activity android:name=".controller.activities.ChooseExercise"
+            android:parentActivityName=".controller.activities.EditWorkout"
+            android:label="@string/choose_exercise">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".controller.activities.EditWorkout" />
+        </activity>
+
+        <activity android:name=".controller.activities.PlayWorkout" />
+        <activity android:name=".controller.activities.FinishedWorkout"
+            android:label="@string/well_done"/>
+        <activity android:name=".controller.activities.ScanQr"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:label="@string/qr_scan"
+            android:parentActivityName=".controller.activities.ChooseWorkout"
+            />
+        <activity android:name=".controller.activities.ShowQr"
+            android:parentActivityName=".controller.activities.ChooseWorkout"
+            android:label="@string/share_via_qr"
+            />
+    </application>
+
+</manifest>
